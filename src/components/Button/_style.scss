@@ -37,12 +37,47 @@
   }
 }
 
-.tui-btn-lg {
+// size
+.tui-btn-large {
   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
 }
-
-.tui-btn-sm {
+.tui-btn-small {
   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+}
+
+// shape
+.tui-btn-circle {
+  min-width: 2rem;
+  padding-right: 0px;
+  padding-left: 0px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.tui-btn-circle.tui-btn-large {
+  min-width: 2.5rem;
+  border-radius: 50%;
+}
+
+.tui-btn-circle.tui-btn-small {
+  min-width: 1.5rem;
+  border-radius: 50%;
+}
+
+.tui-btn-round {
+  min-width: 2rem;
+  text-align: center;
+  border-radius: 3.125rem;
+}
+
+.tui-btn-circle.tui-btn-large {
+  min-width: 2.5rem;
+  border-radius: 3.125rem;
+}
+
+.tui-btn-circle.tui-btn-small {
+  min-width: 1.5rem;
+  border-radius: 3.125rem;
 }
 
 .tui-btn-primary {

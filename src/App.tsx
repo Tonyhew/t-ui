@@ -1,5 +1,5 @@
 import React from 'react';
-import Button, { ButtonSize, ButtonType } from './components/Button/button';
+import Button from './components/Button/button';
 import Alert from './components/Alert/alert';
 
 const App: React.FC = () => {
@@ -8,13 +8,16 @@ const App: React.FC = () => {
       <header className='App-header'>
         <p>Button组件: </p>
 
-        <Button btnType={ButtonType.Default} size={ButtonSize.Large}> Hello World </Button>
-        <Button btnType={ButtonType.Primary}>Hello</Button>
-        <Button btnType={ButtonType.Danger}>Hello World</Button>
-        <Button btnType={ButtonType.Link} href='www.baidu.com'>
+        <Button btnType={'default'} size={'large'}>
+          {' '}
           Hello World{' '}
         </Button>
-        <Button btnType={ButtonType.Dash}>ddd</Button>
+        <Button btnType={'primary'} >Hello</Button>
+        <Button btnType={'danger'} size={'small'} shape={'round'}>Hello World</Button>
+        <Button btnType={'link'} href='www.baidu.com'>
+          Hello World{' '}
+        </Button>
+        <Button btnType={'primary'} shape={'circle'}>d</Button>
 
         <br />
         <br />
