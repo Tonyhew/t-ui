@@ -30,7 +30,7 @@ const App: React.FC = () => {
         <br />
 
         <p>Alert组件: </p>
-        <Alert type='success' title='hi' closable={true} />
+        <Alert type='success' title='hi' closable={true} onClose={(e: any) => console.log('ddd')} />
         <Alert type='warning' title='2222' closable={false} icon={<>dd</>} />
         <Alert type='danger' title='danger' description='you are dangerous' />
       </header>

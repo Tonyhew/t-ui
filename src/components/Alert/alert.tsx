@@ -7,7 +7,7 @@ export interface IAlertProps {
   title: string // 标题
   description?: string // 描述
   type?: AlertType
-  onClose?: () => void
+  onClose?: React.MouseEventHandler<HTMLButtonElement>
   closable?: boolean
   className?: string
   icon?: React.ReactNode
@@ -25,9 +25,9 @@ const Alert: React.FC<IAlertProps> = (props) => {
     'bold-title': title,
   })
 
-  const handleClose = (e: React.MouseEvent) => {
+  const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (onClose) {
-      onClose()
+      onClose?.(e)
     }
     setHide(true)
   }
