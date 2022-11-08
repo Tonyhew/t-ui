@@ -13,11 +13,18 @@ const App: React.FC = () => {
           Hello World{' '}
         </Button>
         <Button btnType={'primary'} >Hello</Button>
-        <Button btnType={'danger'} shape={'round'}>Hello World</Button>
+        
         <Button btnType={'link'} >
           Hello World{' '}
         </Button>
+        <Button btnType={'primary'} shape={'circle'} size='small'>d</Button>
+        <Button btnType={'primary'} shape={'circle'}>d</Button>
         <Button btnType={'primary'} shape={'circle'} size='large'>d</Button>
+
+        <br />
+        <Button btnType={'danger'} shape={'round'} size='small'>Hello World</Button>
+        <Button btnType={'danger'} shape={'round'}>Hello World</Button>
+        <Button btnType={'danger'} shape={'round'} size='large'>Hello World</Button>
 
         <br />
         <br />
