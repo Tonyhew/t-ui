@@ -47,20 +47,18 @@
 
 // shape
 .tui-btn-circle {
-  min-width: 2rem;
-  padding-right: 0px;
-  padding-left: 0px;
+  min-width: 3rem;
+  min-height: 3rem;
+  padding: 0;
   text-align: center;
   border-radius: 50%;
 }
 
 .tui-btn-circle.tui-btn-large {
-  min-width: 2.5rem;
   border-radius: 50%;
 }
 
 .tui-btn-circle.tui-btn-small {
-  min-width: 1.5rem;
   border-radius: 50%;
 }
 
@@ -71,12 +69,10 @@
 }
 
 .tui-btn-circle.tui-btn-large {
-  min-width: 2.5rem;
   border-radius: 3.125rem;
 }
 
 .tui-btn-circle.tui-btn-small {
-  min-width: 1.5rem;
   border-radius: 3.125rem;
 }
 

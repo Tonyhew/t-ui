@@ -13,11 +13,11 @@ const App: React.FC = () => {
           Hello World{' '}
         </Button>
         <Button btnType={'primary'} >Hello</Button>
-        <Button btnType={'danger'} size={'small'} shape={'round'}>Hello World</Button>
-        <Button btnType={'link'} href='www.baidu.com'>
+        <Button btnType={'danger'} shape={'round'}>Hello World</Button>
+        <Button btnType={'link'} >
           Hello World{' '}
         </Button>
-        <Button btnType={'primary'} shape={'circle'}>d</Button>
+        <Button btnType={'primary'} shape={'circle'} size='large'>d</Button>
 
         <br />
         <br />
