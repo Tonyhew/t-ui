@@ -2,10 +2,24 @@ import React from 'react';
 import Button from './components/Button/button';
 import Alert from './components/Alert/alert';
 
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem';
+
 const App: React.FC = () => {
   return (
     <div className='App'>
       <header className='App-header'>
+
+        <p>Menu组件: </p>
+
+        <Menu defaultIndex={0} onSelect={(index) => console.log(index)}>
+          <MenuItem index={0}>one</MenuItem>
+          <MenuItem index={1} disabled>two</MenuItem>
+          <MenuItem index={2}>three</MenuItem>
+        </Menu>
+
+        <br />
+
         <p>Button组件: </p>
 
         <Button btnType={'default'} size={'large'}>

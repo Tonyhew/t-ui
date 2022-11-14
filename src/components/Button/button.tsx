@@ -17,11 +17,11 @@ interface BaseButtonProps {
   size?: ButtonSize,
   // 设置按钮类型
   btnType?: ButtonType,
-  children: React.ReactNode,
   // 按钮的 btnType 为 link 时所能调用的属性
   href?: string,
   // 设置按钮形状
   shape?: ButtonShape,
+  children: React.ReactNode,
 }
 
 type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>

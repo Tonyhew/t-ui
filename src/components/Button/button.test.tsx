@@ -13,6 +13,11 @@ const defaultProps = {
   onClick: jest.fn(),
 }
 
+const disabledProps: ButtonProps = {
+  disabled: true,
+  onClick: jest.fn()
+}
+
 describe('test button component', () => {
   it('should render the correct default button', () => {
     const view = render(<Button {...defaultProps}>Nice</Button>)
@@ -49,8 +54,11 @@ describe('test button component', () => {
   })
 
   it('should render disabled button when disabled set to true', () => {
-    const view = render(<Button {...testProps}>Nice</Button>)
-    const element = view.getByText('Nice')
+    const view = render(<Button {...disabledProps}>disabled</Button>)
+    const element = view.getByText('disabled') as HTMLButtonElement
     expect(element).toBeInTheDocument()
+    expect(element.disabled).toBeTruthy()
+    fireEvent.click(element)
+    expect(disabledProps.onClick).not.toHaveBeenCalled()
   })
 })
