@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
         <p>Menu组件: </p>
 
-        <Menu defaultIndex={0} onSelect={(index) => console.log(index)}>
+        <Menu mode='vertical' defaultIndex={0} onSelect={(index) => console.log(index)}>
           <MenuItem index={0}>one</MenuItem>
           <MenuItem index={1} disabled>two</MenuItem>
           <MenuItem index={2}>three</MenuItem>
