@@ -46,7 +46,7 @@ describe('test Menu and MenuItem component', () => {
   
   it('click items should change active and call the right callback', () => {
     setup()
-    const thirdItem = wrapper.getByText('xyz')
+    const thirdItem = screen.getByText('xyz')
     fireEvent.click(thirdItem)
     expect(thirdItem).toHaveClass('is-active')
     expect(activeElement).not.toHaveClass('is-active')
@@ -58,8 +58,8 @@ describe('test Menu and MenuItem component', () => {
 
   it('should render vertical mode when mode is set to vertical', () => {
     cleanup()
-    const wrapper = render(renderMenu(testVerProps))
-    const menuElement = wrapper.getByTestId('test-menu')
+    wrapper = render(renderMenu(testVerProps))
+    menuElement = screen.getByTestId('test-menu')
     expect(menuElement).toHaveClass('menu-vertical')
   })
 })
