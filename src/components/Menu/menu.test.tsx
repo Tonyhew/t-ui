@@ -1,8 +1,5 @@
-/* eslint-disable testing-library/no-node-access */
-/* eslint-disable testing-library/prefer-screen-queries */
-/* eslint-disable testing-library/render-result-naming-convention */
 import React from "react";
-import { cleanup, fireEvent, render, RenderResult } from "@testing-library/react";
+import { cleanup, fireEvent, render, RenderResult, screen, } from "@testing-library/react";
 import Menu, { IMenuProps } from "./menu";
 import MenuItem from "./menuItem";
 
@@ -17,18 +14,12 @@ const testVerProps: IMenuProps = {
   mode: 'vertical'
 }
 
-const renderMenu = (props: any) => {
+const renderMenu = (props: IMenuProps) => {
   return (
     <Menu {...props}>
-      <MenuItem index={0}>
-        active
-      </MenuItem>
-      <MenuItem disabled index={1}>
-        disabled
-      </MenuItem>
-      <MenuItem index={2}>
-        xyz
-      </MenuItem>
+      <MenuItem index={0}>active</MenuItem>
+      <MenuItem index={1} disabled>disabled</MenuItem>
+      <MenuItem index={2}>xyz</MenuItem>
     </Menu>
   )
 }
@@ -37,9 +28,9 @@ let wrapper: RenderResult, menuElement: HTMLElement, activeElement: HTMLElement,
 
 const setup = () => {
   wrapper = render(renderMenu(testProps));
-  menuElement = wrapper.getByTestId('test-menu');
-  activeElement = wrapper.getByText('active')
-  disabledElement = wrapper.getByText('disabled')
+  menuElement = screen.getByTestId('test-menu');
+  activeElement = screen.getByText('active')
+  disabledElement = screen.getByText('disabled')
 }
 
 describe('test Menu and MenuItem component', () => {
