@@ -47,7 +47,9 @@ const Menu: React.FC<IMenuProps> = (props) => {
       const childElement = child as React.FunctionComponentElement<IMenuItem>
       const { name } = childElement.type
       if (name === 'MenuItem') {
-        return child
+        return React.cloneElement(childElement, {
+          index
+        })
       } else {
         console.error('Warning: Menu has a child which is not MenuItem component')
       }
