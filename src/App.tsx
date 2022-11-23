@@ -4,6 +4,7 @@ import Alert from './components/Alert/alert';
 
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
+import SubMenu from './components/Menu/subMenu';
 
 const App: React.FC = () => {
   return (
@@ -13,9 +14,17 @@ const App: React.FC = () => {
         <p>Menu组件: </p>
 
         <Menu mode='vertical' defaultIndex={0} onSelect={(index) => console.log(index)}>
-          <MenuItem index={0}>one</MenuItem>
-          <MenuItem index={1} disabled>two</MenuItem>
-          <MenuItem index={2}>three</MenuItem>
+          <MenuItem>one</MenuItem>
+          <MenuItem disabled>two</MenuItem>
+          <SubMenu title="dropdown">
+            <MenuItem>
+              dropdown 1
+            </MenuItem>
+            <MenuItem>
+              dropdown 2
+            </MenuItem>
+          </SubMenu>     
+          <MenuItem>three</MenuItem>
         </Menu>
 
         <br />

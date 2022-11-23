@@ -28,6 +28,7 @@ const Menu: React.FC<IMenuProps> = (props) => {
 
   const classes = classNames('tui-menu', className, {
     'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical',
   })
 
   const handleClick = (index: number) => {
@@ -46,7 +47,7 @@ const Menu: React.FC<IMenuProps> = (props) => {
     return React.Children.map(children, (child, index) => {
       const childElement = child as React.FunctionComponentElement<IMenuItem>
       const { name } = childElement.type
-      if (name === 'MenuItem') {
+      if (name === 'MenuItem' || name === 'SubMenu') {
         return React.cloneElement(childElement, {
           index
         })
