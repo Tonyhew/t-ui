@@ -3,26 +3,29 @@ import classNames from 'classnames'
 import { IMenuItem } from './menuItem'
 
 type MenuMode = 'horizontal' | 'vertical';
-type SelectCallback = (selectedIndex: number) => void
+type SelectCallback = (selectedIndex: string) => void
 
 export interface IMenuProps {
   className?: string;
   mode?: MenuMode;
-  defaultIndex?: number;
+  defaultIndex?: string;
   style?: React.CSSProperties;
   onSelect?: SelectCallback;
   children?: React.ReactNode;
+  defaultOpenSubMenu?: string[];
 }
 
 interface IMenuContext {
-  index: number;
+  index: string;
   onSelect?: SelectCallback;
+  mode?: MenuMode;
+  defaultOpenSubMenu?: string[];
 }
 
-export const MenuContext = createContext<IMenuContext>({ index: 0 })
+export const MenuContext = createContext<IMenuContext>({ index: '0' })
 
 const Menu: React.FC<IMenuProps> = (props) => {
-  const { className, mode, defaultIndex, style, onSelect, children } = props
+  const { className, mode, defaultIndex, style, onSelect, children, defaultOpenSubMenu } = props
 
   const [activeIndex, setActiveIndex] = useState(defaultIndex)
 
@@ -31,7 +34,7 @@ const Menu: React.FC<IMenuProps> = (props) => {
     'menu-horizontal': mode !== 'vertical',
   })
 
-  const handleClick = (index: number) => {
+  const handleClick = (index: string) => {
     setActiveIndex(index)
     if (onSelect) {
       onSelect(index)
@@ -39,8 +42,10 @@ const Menu: React.FC<IMenuProps> = (props) => {
   }
 
   const passedContext: IMenuContext = {
-    index: activeIndex ? activeIndex : 0,
-    onSelect: handleClick
+    index: activeIndex ? activeIndex : '0',
+    onSelect: handleClick,
+    mode,
+    defaultOpenSubMenu
   }
 
   const renderChildren = () => {
@@ -49,7 +54,7 @@ const Menu: React.FC<IMenuProps> = (props) => {
       const { name } = childElement.type
       if (name === 'MenuItem' || name === 'SubMenu') {
         return React.cloneElement(childElement, {
-          index
+          index: index.toString()
         })
       } else {
         console.error('Warning: Menu has a child which is not MenuItem component')
@@ -71,7 +76,7 @@ const Menu: React.FC<IMenuProps> = (props) => {
 }
 
 Menu.defaultProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: 'horizontal',
 }
 

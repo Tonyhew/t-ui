@@ -4,13 +4,13 @@ import Menu, { IMenuProps } from "./menu";
 import MenuItem from "./menuItem";
 
 const testProps: IMenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   onSelect: jest.fn(),
   className: 'test'
 }
 
 const testVerProps: IMenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: 'vertical'
 }
 
