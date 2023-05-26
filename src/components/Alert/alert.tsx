@@ -33,23 +33,6 @@ const Alert: React.FC<IAlertProps> = (props) => {
     setHide(true)
   }
 
-<<<<<<< Updated upstream
-  return !hide ? (
-    <div className={classes}>
-      {icon && <span className='tui-alert-icon'>{icon}</span>}
-      <span className={titleClass}>{title}</span>
-      {description && <p className='tui-alert-desc'>{description}</p>}
-      {closable && (
-        <span
-          className='tui-alert-close'
-          onClick={handleClose}
-        >
-          X
-        </span>
-      )}
-    </div>
-  ) : null
-=======
   return (
     <Transition
       in={!hide}
@@ -74,7 +57,6 @@ const Alert: React.FC<IAlertProps> = (props) => {
       </div>
     </Transition>
   )
->>>>>>> Stashed changes
 }
 
 Alert.defaultProps = {

@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import Button from './components/Button/button'
 import Alert from './components/Alert/alert'
 
-<<<<<<< Updated upstream
-=======
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
@@ -19,15 +17,12 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fas)
 
->>>>>>> Stashed changes
 const App: React.FC = () => {
   const [show, setShow] = useState(true)
 
   return (
     <div className='App'>
       <header className='App-header'>
-<<<<<<< Updated upstream
-=======
         <p>Menu组件: </p>
 
         <Menu>
@@ -50,7 +45,6 @@ const App: React.FC = () => {
 
         <br />
 
->>>>>>> Stashed changes
         <p>Button组件: </p>
 
         <Button
@@ -114,12 +108,6 @@ const App: React.FC = () => {
           Toggle
         </Button>
 
-<<<<<<< Updated upstream
-        <p>Alert组件: </p>
-        <Alert type='success' title='hi' closable={true} onClose={(e: any) => console.log('ddd')} />
-        <Alert type='warning' title='2222' closable={false} icon={<>dd</>} />
-        <Alert type='danger' title='danger' description='you are dangerous' />
-=======
         <Transition
           in={show}
           wrapper
@@ -162,7 +150,6 @@ const App: React.FC = () => {
 
         <br />
         <br />
->>>>>>> Stashed changes
       </header>
     </div>
   )
