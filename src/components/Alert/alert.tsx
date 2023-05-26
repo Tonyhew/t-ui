@@ -5,13 +5,13 @@ import Transition from '../Transition/transition'
 export type AlertType = 'success' | 'default' | 'danger' | 'warning'
 
 export interface IAlertProps {
-  title: string // 标题
-  description?: string // 描述
-  type?: AlertType
-  onClose?: React.MouseEventHandler<HTMLButtonElement>
-  closable?: boolean
-  className?: string
-  icon?: React.ReactNode
+  title: string; // 标题
+  description?: string; // 描述
+  type?: AlertType;
+  onClose?: React.MouseEventHandler<HTMLButtonElement>;
+  closable?: boolean;
+  className?: string;
+  icon?: React.ReactNode;
 }
 
 const Alert: React.FC<IAlertProps> = (props) => {

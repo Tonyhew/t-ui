@@ -40,8 +40,6 @@
   background: $background;
   border-color: $border;
 }
-<<<<<<< Updated upstream
-=======
 
 @mixin border-top-radius($raduis) {
   border-top-left-radius: $raduis;
@@ -76,4 +74,3 @@
     transform-origin: $origin;
   }
 }
->>>>>>> Stashed changes
