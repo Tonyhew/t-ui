@@ -39,13 +39,23 @@
 
 // size
 .tui-btn-large {
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $btn-font-size-lg,
+    $btn-border-radius-lg
+  );
 }
 .tui-btn-small {
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $btn-font-size-sm,
+    $btn-border-radius-sm
+  );
 }
 
-// shape
+// button shape
 .tui-btn-circle {
   min-width: 2rem;
   min-height: 2rem;
@@ -54,6 +64,7 @@
   border-radius: 50%;
 }
 
+// button shape size
 .tui-btn-circle.tui-btn-large {
   min-width: 2.5rem;
   min-height: 2.5rem;
@@ -106,6 +117,7 @@
     text-decoration: $link-hover-decoration;
     box-shadow: none;
     outline: 0;
+    border: none;
   }
   &:disabled,
   &.disabled {

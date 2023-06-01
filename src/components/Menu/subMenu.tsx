@@ -2,6 +2,11 @@ import React, { useContext, useState, FunctionComponentElement } from "react";
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 import { IMenuItem } from './menuItem'
+<<<<<<< Updated upstream
+=======
+import Icon from "../Icon/Icon";
+import Transition from "../Transition/transition";
+>>>>>>> Stashed changes
 
 export interface ISubMenuProps {
   index?: string;
@@ -55,6 +60,7 @@ const SubMenu: React.FC<ISubMenuProps> = ({ title, className, index, children })
 
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<IMenuItem>
+
       const { name } = childElement.type
       if (name === 'MenuItem') {
         return React.cloneElement(childElement, {
@@ -65,9 +71,15 @@ const SubMenu: React.FC<ISubMenuProps> = ({ title, className, index, children })
       }
     })
     return (
-      <ul className={subMenuClasses}>
-        {childrenComponent}
-      </ul>
+      <Transition
+        in={menuOpen}
+        timeout={300}
+        animation="zoom-in-top"
+      >
+        <ul className={subMenuClasses}>
+          {childrenComponent}
+        </ul>
+      </Transition>
     )
   }
 
