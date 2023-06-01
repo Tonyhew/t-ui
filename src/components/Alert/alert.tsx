@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
+import Transition from '../Transition/transition'
 
 export type AlertType = 'success' | 'default' | 'danger' | 'warning'
 
@@ -32,21 +33,30 @@ const Alert: React.FC<IAlertProps> = (props) => {
     setHide(true)
   }
 
-  return !hide ? (
-    <div className={classes} data-testid='tui-alert'>
-      {icon && <span className='tui-alert-icon'>{icon}</span>}
-      <span className={titleClass}>{title}</span>
-      {description && <p className='tui-alert-desc'>{description}</p>}
-      {closable && (
-        <span
-          className='tui-alert-close'
-          onClick={handleClose}
-        >
-          X
-        </span>
-      )}
-    </div>
-  ) : null
+  return (
+    <Transition
+      in={!hide}
+      animation='zoom-in-top'
+      timeout={300}
+    >
+      <div
+        className={classes}
+        data-testid='tui-alert'
+      >
+        {icon && <span className='tui-alert-icon'>{icon}</span>}
+        <span className={titleClass}>{title}</span>
+        {description && <p className='tui-alert-desc'>{description}</p>}
+        {closable && (
+          <span
+            className='tui-alert-close'
+            onClick={handleClose}
+          >
+            X
+          </span>
+        )}
+      </div>
+    </Transition>
+  )
 }
 
 Alert.defaultProps = {

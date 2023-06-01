@@ -1,9 +1,16 @@
 @import 'variables';
 @import 'reboot';
 @import 'mixin';
+// animation
+@import './animation';
 // button
 @import '../components/Button/style';
 // alert
-@import '../components/Alert/style';
+@import '../components/Alert/style'
+;
 // menu
 @import '../components/Menu/style';
+// tabs
+@import '../components/Tabs/style';
+// icon
+@import '../components/Icon/style'
