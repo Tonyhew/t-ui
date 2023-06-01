@@ -108,6 +108,7 @@ const Tab: React.FC<ITabProps> = (props) => {
 Tab.defaultProps = {
   defaultIndex: 0,
   type: 'line',
+  tabPosition: 'top'
 }
 
 export default Tab

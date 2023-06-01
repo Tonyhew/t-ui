@@ -38,7 +38,7 @@ const App: React.FC = () => {
         <br />
 
         <p>Tab组件:</p>
-        <Tab type='line' >
+        <Tab type='line'>
           <TabItem label='ddd'>ddd</TabItem>
           <TabItem label='aaa'>aaa</TabItem>
         </Tab>
