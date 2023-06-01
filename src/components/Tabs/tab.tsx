@@ -3,27 +3,22 @@ import classNames from 'classnames'
 import { ITabItemProps } from './tabItem'
 
 type Type = 'line' | 'card'
+type Position = 'top' | 'bottom' | 'left' | 'right'
 type SelectCallback = (defaultIndex: number) => void
-
-interface ITabItemsProps {
-  key: string | number
-  label: string
-  disabled?: boolean
-  children: React.ReactNode
-}
 
 interface ITabProps {
   centered?: boolean
   defaultIndex?: number
   type?: Type
+  tabPosition?: Position
   className?: string
   onSelect?: SelectCallback
   children?: React.ReactNode
-  items?: ITabItemsProps[]
+  items?: ITabItemProps[]
 }
 
 const Tab: React.FC<ITabProps> = (props) => {
-  const { defaultIndex, type, className, children, onSelect, items, centered } = props
+  const { defaultIndex, type, className, children, onSelect, items, centered, tabPosition } = props
 
   const [activeIndex, setActiveIndex] = useState(defaultIndex)
 
@@ -35,6 +30,12 @@ const Tab: React.FC<ITabProps> = (props) => {
       }
     }
   }
+
+  const tabClass = classNames('tui-tabs', {
+    className,
+    'tui-tab-centered': centered,
+    [`tui-tab-${tabPosition}`]: tabPosition,
+  })
 
   const navClass = classNames('tui-tabs-nav', {
     'nav-line': type === 'line',
@@ -96,7 +97,7 @@ const Tab: React.FC<ITabProps> = (props) => {
   }
 
   return (
-    <div className={`tui-tabs ${className} ${centered ? 'tui-tab-centered' : ''}`}>
+    <div className={tabClass}>
       <ul className={navClass}>{renderNavLinks()}</ul>
 
       <div className={'tui-tabs-content'}>{renderNavContent()}</div>

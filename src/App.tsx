@@ -45,6 +45,7 @@ const App: React.FC = () => {
 
         <Tab
           type='card'
+          tabPosition='bottom'
           centered
           items={[
             {
@@ -56,7 +57,6 @@ const App: React.FC = () => {
               label: '项目 2',
               key: 'item-2',
               children: '内容 2',
-              disabled: true
             },
           ]}
         />

@@ -1,19 +1,16 @@
 import React, { FC, ReactNode } from 'react'
 
 export interface ITabItemProps {
+  key?: string | number
   /** Tab选项上面的文字 */
-  label: string;
+  label: string
   /** 是否禁用 */
-  disabled?: boolean;
-  children?: ReactNode;
+  disabled?: boolean
+  children?: ReactNode
 }
 
 const TabItem: FC<ITabItemProps> = ({ children }) => {
-  return (
-    <div className="tui-tab-panel">
-      {children}
-    </div>
-  )
+  return <div className='tui-tab-panel'>{children}</div>
 }
 
 export default TabItem

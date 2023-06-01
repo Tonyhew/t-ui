@@ -2,21 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
-  margin-bottom: 0;
+  margin-bottom: $nav-tabs-content-margin;
   list-style: none;
   border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
-}
-
-.tui-tab-centered {
-  width: 100%;
-  margin: 0 auto;
-  .tui-tabs-nav {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
 .tui-tabs-nav-item {
@@ -39,6 +27,21 @@
     color: $nav-tabs-link-active-color;
   }
 }
+
+// tab 选项卡居中为 True 的情况下的样式
+.tui-tab-centered {
+  width: 100%;
+  margin: 0 auto;
+  .tui-tabs-nav {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// 选项卡选中状态的样式
 .nav-line {
   .tui-tabs-nav-item {
     &.is-active {
@@ -46,6 +49,7 @@
     }
   }
 }
+
 
 .nav-card {
   .tui-tabs-nav-item {
@@ -59,6 +63,42 @@
   }
 }
 
-.tui-tabs-content {
-  margin-top: $nav-tabs-content-margin;
+.tui-tab-top {
+  flex-direction: row;
+}
+
+.tui-tab-bottom {
+  display: flex;
+  flex-direction: column-reverse;
+  .tui-tabs-nav {
+    position: relative;
+    display: flex;
+    flex: none;
+    align-items: center;
+    border-top: $nav-tabs-border-width solid $nav-tabs-border-color;
+    border-bottom: none;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .nav-line {
+    .tui-tabs-nav-item {
+      &.is-active {
+        border-bottom: none;
+        border-top: $nav-tabs-border-width * 2 solid $nav-tabs-link-active-color;
+      }
+    }
+  }
+
+  .nav-card {
+    .tui-tabs-nav-item {
+      border: $nav-tabs-border-width solid transparent;
+      margin-bottom: -$nav-tabs-border-width;
+      &.is-active {
+        @include border-top-radius($nav-tabs-border-radius);
+        background-color: $nav-tabs-link-active-bg;
+        border-color: $nav-tabs-card-link-active-border-color;
+      }
+    }
+  }
 }
