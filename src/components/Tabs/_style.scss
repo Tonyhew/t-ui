@@ -72,6 +72,7 @@
     border-bottom: none;
     margin-bottom: -$nav-tabs-border-width;
     &.is-active {
+      z-index: 1;
       background-color: $nav-tabs-link-active-bg;
       border-color: $nav-tabs-link-active-border-color;
     }
@@ -128,6 +129,7 @@
       border-top: none;
       border-bottom: $nav-tabs-border-width solid #dee2e6;
       &.is-active {
+        z-index: 1;
         border-color: $nav-tabs-card-link-active-border-color;
       }
     }
