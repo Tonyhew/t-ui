@@ -6,7 +6,7 @@ import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 
-import Tab from './components/Tabs/tab';
+import Tabs from './components/Tabs/tab';
 import TabItem from './components/Tabs/tabItem';
 
 import Icon from './components/Icon/Icon';
@@ -38,13 +38,13 @@ const App: React.FC = () => {
         <br />
 
         <p>Tab组件:</p>
-        <Tab type='card'>
+        <Tabs type='line'>
           <TabItem label='ddd'>ddd</TabItem>
           <TabItem label='aaa'>aaa</TabItem>
-        </Tab>
+        </Tabs>
 
-        <Tab
-          type='card'
+        <Tabs
+          type='line'
           tabPosition='bottom'
           centered
           items={[

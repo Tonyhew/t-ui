@@ -10,6 +10,7 @@
 .tui-tabs-nav-item {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
+  
   cursor: pointer;
   &:hover,
   &:focus {

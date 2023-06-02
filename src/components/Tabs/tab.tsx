@@ -1,6 +1,7 @@
-import React, { FunctionComponentElement, useState } from 'react'
+import React, { FunctionComponentElement, useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { ITabItemProps } from './tabItem'
+import { error } from 'console'
 
 type Type = 'line' | 'card'
 type Position = 'top' | 'bottom' | 'left' | 'right'
@@ -17,10 +18,17 @@ interface ITabProps {
   items?: ITabItemProps[]
 }
 
-const Tab: React.FC<ITabProps> = (props) => {
+const Tabs: React.FC<ITabProps> = (props) => {
   const { defaultIndex, type, className, children, onSelect, items, centered, tabPosition } = props
 
   const [activeIndex, setActiveIndex] = useState(defaultIndex)
+
+  useEffect(() => {
+    if (!items) {
+      const err = 'Warning: [tui: Tabs] Tabs.TabItem is deprecated. please use `items` directly'
+      console.error(err)
+    }
+  }, [items])
 
   const handleClick = (e: React.MouseEvent, index: number, disabled?: boolean | undefined) => {
     if (!disabled) {
@@ -105,10 +113,10 @@ const Tab: React.FC<ITabProps> = (props) => {
   )
 }
 
-Tab.defaultProps = {
+Tabs.defaultProps = {
   defaultIndex: 0,
   type: 'line',
-  tabPosition: 'top'
+  tabPosition: 'top',
 }
 
-export default Tab
+export default Tabs
