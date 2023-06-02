@@ -25,7 +25,7 @@ const App: React.FC = () => {
 
         <p>Menu组件: </p>
 
-        <Menu defaultOpenSubMenu={['2']} defaultIndex={'0'} mode='vertical'>
+        <Menu defaultOpenSubMenu={['2']} defaultIndex={'0'} mode='horizontal'>
           <MenuItem>one</MenuItem>
           <MenuItem disabled>two</MenuItem>
           <SubMenu title='dropdown'>
@@ -38,7 +38,7 @@ const App: React.FC = () => {
         <br />
 
         <p>Tab组件:</p>
-        <Tab type='line'>
+        <Tab type='card'>
           <TabItem label='ddd'>ddd</TabItem>
           <TabItem label='aaa'>aaa</TabItem>
         </Tab>
