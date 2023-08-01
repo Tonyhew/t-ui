@@ -33,6 +33,7 @@ const Tabs: React.FC<ITabProps> = (props) => {
   const handleClick = (e: React.MouseEvent, index: number, disabled?: boolean | undefined) => {
     if (!disabled) {
       setActiveIndex(index)
+      
       if (onSelect) {
         onSelect(index)
       }
@@ -91,15 +92,11 @@ const Tabs: React.FC<ITabProps> = (props) => {
   const renderNavContent = () => {
     if (items) {
       return items.map((item, index) => {
-        if (index === activeIndex) {
-          return item.children
-        }
+        return index === activeIndex && item.children
       })
     } else {
       return React.Children.map(children, (child, index) => {
-        if (index === activeIndex) {
-          return child
-        }
+        return index === activeIndex && child
       })
     }
   }

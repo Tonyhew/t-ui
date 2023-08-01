@@ -88,6 +88,7 @@
     .tui-tabs-nav-item {
       &.is-active {
         border-bottom: $nav-tabs-border-width * 2 solid $nav-tabs-link-active-color;
+        // transition: .1s ease-in-out;
       }
     }
   }
