@@ -23,6 +23,7 @@ $alert-colors: (
   }
   .bold-title {
     font-weight: $font-weight-bold;
+    margin-right: 1.25rem;
   }
   .tui-alert-desc {
     font-size: $alert-description-font-size;

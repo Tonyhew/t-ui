@@ -1,0 +1,28 @@
+{/* Alert.mdx */}
+
+import { Meta, Primary, Canvas, Controls, Story } from '@storybook/blocks';
+
+import * as Alert from './alert.stories';
+
+<Meta of={Alert} />
+
+# Alert
+
+<Primary />
+
+<Controls />
+
+## 带描述的 Alert
+
+<Canvas of={Alert.AlertWithDescription} meta={Alert} />
+<Controls of={Alert.AlertWithDescription} />
+
+## 不同类型的 Alert
+
+<Canvas of={Alert.AlertWithDifferentType} meta={Alert} />
+<Controls of={Alert.AlertWithDifferentType} />
+
+
+
+{/* ... */}
+
