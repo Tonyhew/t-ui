@@ -68,8 +68,8 @@ const Alert: React.FC<IAlertProps> = (props) => {
             <Icon
               className="tui-alert-icon"
               theme={iconType}
-              icon={'window-close'}
-              style={{ borderRadius: '50%' }}
+              icon={'plus-circle'}
+              style={{ transform: 'rotate(45deg)' }}
             />
           );
       }
