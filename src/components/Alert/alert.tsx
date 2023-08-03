@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import Transition from '../Transition/transition';
-import Icon, { ThemeProps } from '../Icon/Icon';
+import Icon from '../Icon/Icon';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 
-export type AlertType = 'success' | 'default' | 'danger' | 'warning';
+export type AlertType =
+  | 'success'
+  | 'default'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'primary'
+  | 'error';
 
 export interface IAlertProps {
   title: string; // 标题
@@ -14,21 +21,12 @@ export interface IAlertProps {
   closable?: boolean;
   className?: string;
   icon?: IconName;
-  iconType?: ThemeProps;
 }
 
 const Alert: React.FC<IAlertProps> = (props) => {
   const [hide, setHide] = useState(false);
-  const {
-    title,
-    description,
-    type,
-    closable,
-    onClose,
-    className,
-    icon,
-    iconType
-  } = props;
+  const { title, description, type, closable, onClose, className, icon } =
+    props;
 
   const classes = classNames('tui-alert', className, {
     [`tui-alert-${type}`]: type
@@ -45,11 +43,46 @@ const Alert: React.FC<IAlertProps> = (props) => {
     setHide(true);
   };
 
+  const iconTypeRender = (iconType: any, icon: any) => {
+    console.log(icon, iconType)
+    if (!icon) {
+      switch (iconType) {
+        case 'success':
+          return (
+            <Icon
+              className="tui-alert-icon"
+              theme={iconType}
+              icon={'check-circle'}
+            />
+          );
+        case 'warning':
+          return (
+            <Icon
+              className="tui-alert-icon"
+              theme={iconType}
+              icon={'warning'}
+            />
+          );
+        case 'error':
+          return (
+            <Icon
+              className="tui-alert-icon"
+              theme={iconType}
+              icon={'window-close'}
+              style={{ borderRadius: '50%' }}
+            />
+          );
+      }
+    } else {
+      return <Icon className="tui-alert-icon" theme={iconType} icon={icon} />;
+    }
+  };
+
   return (
     <Transition in={!hide} animation="zoom-in-top" timeout={300}>
       <div className={classes} data-testid="tui-alert">
         {/* {icon && <span className='tui-alert-icon'>{icon}</span>} */}
-        {icon && <Icon theme={iconType} icon={icon} />}
+        {icon ? iconTypeRender(type, icon) : iconTypeRender(type, icon)}
         <span className={titleClass}>{title}</span>
         {description && <p className="tui-alert-desc">{description}</p>}
         {closable && (

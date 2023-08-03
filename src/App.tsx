@@ -138,15 +138,15 @@ const App: React.FC = () => {
             title='hi'
             closable={true}
             onClose={(e: any) => console.log('ddd')}
+            icon={'warning'}
           />
           <Alert
             type='warning'
             title='2222'
             closable={false}
-            icon={'check-circle'}
           />
           <Alert
-            type='danger'
+            type='error'
             title='danger'
             description='you are dangerous'
           />
