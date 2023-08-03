@@ -143,7 +143,7 @@ const App: React.FC = () => {
             type='warning'
             title='2222'
             closable={false}
-            icon={<>dd</>}
+            icon={'check-circle'}
           />
           <Alert
             type='danger'
@@ -165,6 +165,7 @@ const App: React.FC = () => {
           icon={'arrow-down'}
           size={'10x'}
         />
+        <Icon theme='success' icon={'warning'} size='10x' />
       </header>
     </div>
   )

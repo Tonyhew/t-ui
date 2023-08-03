@@ -22,7 +22,7 @@ const meta: Meta<typeof Alert> = {
       description: `Alert 的描述`,
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'this is description about alert componenet' } 
+        defaultValue: { summary: 'this is a description' } 
       }
     },
     type: {
@@ -53,6 +53,10 @@ const meta: Meta<typeof Alert> = {
     },
     className: {
       type: 'string',
+      description: '自定义类名',
+      table: {
+        type: { summary: 'string' },
+      }
     },
     icon: {
       type: 'string'
