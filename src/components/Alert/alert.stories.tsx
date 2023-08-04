@@ -1,28 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import Alert from './alert'
+import type { Meta, StoryObj } from '@storybook/react';
+import Alert from './alert';
 
 const meta: Meta<typeof Alert> = {
   title: 'T-UI/Alert',
   component: Alert,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered',
+    layout: 'centered'
   },
   argTypes: {
     title: {
       type: 'string',
-      description: `Alert Title`,
+      description: `警告提示的标题`,
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Alert' } 
+        type: { summary: 'string' }
       }
     },
     description: {
       type: 'string',
-      description: `Alert 的描述`,
+      description: `警告提示的辅助性文字介绍`,
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '警告提示的辅助性文字介绍' } 
+        type: { summary: 'string' }
       }
     },
     type: {
@@ -39,7 +37,7 @@ const meta: Meta<typeof Alert> = {
       type: 'function',
       description: '关闭alert时触发的事件',
       table: {
-        type: { summary: '() => void' },
+        type: { summary: '() => void' }
       }
     },
     closable: {
@@ -55,7 +53,7 @@ const meta: Meta<typeof Alert> = {
       type: 'string',
       description: '自定义类名',
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'string' }
       }
     },
     icon: {
@@ -74,33 +72,55 @@ const meta: Meta<typeof Alert> = {
       }
     }
   }
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Alert>
+export default meta;
+type Story = StoryObj<typeof Alert>;
 
 export const AlertDoc: Story = {
   name: 'Alert',
   args: {
     title: 'Alert',
     description: '', // 描述
-    type: 'default',
-  },
-}
+    type: 'default'
+  }
+};
 
 export const AlertWithDescription: Story = {
   name: '带描述的 Alert',
   args: {
     title: 'Alert',
-    description: 'this is describe about alert component',
-  },
-}
+    description: 'this is describe about alert component'
+  }
+};
 
 export const AlertWithDifferentType: Story = {
   name: '不同类型的 Alert',
   args: {
     title: 'Different Type Alert',
     description: 'these are different type of the alert',
-    type: 'danger',
+    type: 'danger'
   },
-}
+  render: (args) => {
+    return (
+      <>
+        <Alert type="danger" {...args} />
+        <Alert type="success" title="type: success" />
+        <Alert type="info" title="type: info" />
+      </>
+    );
+  }
+};
+
+export const AlertWithIcon: Story = {
+  name: '带 Icon图标 的 Alert',
+  args: {
+    type: 'success',
+    title: 'Icon Alert',
+    description: '这是一个状态为 success 的 Alert',
+    showIcon: true
+  },
+  render: (args) => {
+    return <Alert {...args} />;
+  }
+};

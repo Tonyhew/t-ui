@@ -6,23 +6,33 @@ import * as Alert from './alert.stories';
 
 <Meta of={Alert} />
 
-# Alert
+# Alert  
+用于页面中展示重要的提示信息。 点击右侧的叉提示自动消失
+
+
+#### 引用方式  
+`import { Alert } from 'tui'`
 
 <Primary />
-
 <Controls />
 
-## 带描述的 Alert
+## Stories
 
-<Canvas of={Alert.AlertWithDescription} meta={Alert} />
+### 带描述的 Alert
+
+<Canvas of={Alert.AlertWithDescription} />
 <Controls of={Alert.AlertWithDescription} />
 
-## 不同类型的 Alert
 
-<Canvas of={Alert.AlertWithDifferentType} meta={Alert} />
+### 不同类型的 Alert
+
+<Canvas of={Alert.AlertWithDifferentType} />
 <Controls of={Alert.AlertWithDifferentType} />
 
+### 带 ICON 图标的 Alert
 
+<Canvas of={Alert.AlertWithIcon} />
+<Controls of={Alert.AlertWithIcon} />
 
 {/* ... */}
 
