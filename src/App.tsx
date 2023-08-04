@@ -142,6 +142,7 @@ const App: React.FC = () => {
           />
           <Alert
             type='warning'
+            showIcon
             title='2222'
             closable={false}
           />
@@ -151,8 +152,10 @@ const App: React.FC = () => {
             description='you are dangerous'
           />
           <Alert
-            type='info'
+            type='default'
             title='Info'
+            icon={'ice-cream'}
+            showIcon
             description='you are dangerous'
           />
         </Transition>

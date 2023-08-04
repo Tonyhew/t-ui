@@ -59,7 +59,19 @@ const meta: Meta<typeof Alert> = {
       }
     },
     icon: {
-      type: 'string'
+      type: 'string',
+      description: '请使用 fontawesome 的图标',
+      table: {
+        type: { summary: 'string' }
+      }
+    },
+    showIcon: {
+      type: 'boolean',
+      description: '是否显示 Icon 图标',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false }
+      }
     }
   }
 }

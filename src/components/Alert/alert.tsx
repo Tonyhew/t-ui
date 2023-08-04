@@ -52,7 +52,7 @@ const Alert: React.FC<IAlertProps> = (props) => {
             <Icon
               className="tui-alert-icon"
               theme={iconType}
-              icon={'check-circle'}
+              icon={icon !== '' && icon ? icon : 'check-circle'}
             />
           );
         case 'warning':
@@ -60,7 +60,7 @@ const Alert: React.FC<IAlertProps> = (props) => {
             <Icon
               className="tui-alert-icon"
               theme={iconType}
-              icon={'warning'}
+              icon={icon !== '' && icon ? icon : 'warning'}
             />
           );
         case 'error':
@@ -68,7 +68,7 @@ const Alert: React.FC<IAlertProps> = (props) => {
             <Icon
               className="tui-alert-icon"
               theme={iconType}
-              icon={'plus-circle'}
+              icon={icon !== '' && icon ? icon : 'plus-circle'}
               style={{ transform: 'rotate(45deg)' }}
             />
           );
@@ -77,12 +77,12 @@ const Alert: React.FC<IAlertProps> = (props) => {
             <Icon
               className="tui-alert-icon"
               theme={iconType}
-              icon={'info-circle'}
+              icon={icon !== '' && icon ? icon : 'info-circle'}
             />
           );
+        default:
+          return <Icon className="tui-alert-icon" theme={iconType} icon={icon} />;
       }
-    } else {
-      return <Icon className="tui-alert-icon" theme={iconType} icon={icon} />;
     }
   };
 
@@ -90,7 +90,7 @@ const Alert: React.FC<IAlertProps> = (props) => {
     <Transition in={!hide} animation="zoom-in-top" timeout={300}>
       <div className={classes} data-testid="tui-alert">
         {/* {icon && <span className='tui-alert-icon'>{icon}</span>} */}
-        {showIcon ? iconTypeRender(type, icon) : iconTypeRender(type, icon)}
+        {showIcon ? iconTypeRender(type, icon) : null}
         <span className={titleClass}>{title}</span>
         {description && <p className="tui-alert-desc">{description}</p>}
         {closable && (
