@@ -22,7 +22,7 @@ const meta: Meta<typeof Alert> = {
       description: `Alert 的描述`,
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'this is a description' } 
+        defaultValue: { summary: '警告提示的辅助性文字介绍' } 
       }
     },
     type: {

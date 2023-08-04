@@ -135,10 +135,10 @@ const App: React.FC = () => {
           <p>Alert组件: </p>
           <Alert
             type='success'
+            showIcon
             title='hi'
             closable={true}
             onClose={(e: any) => console.log('ddd')}
-            icon={'warning'}
           />
           <Alert
             type='warning'
@@ -148,6 +148,11 @@ const App: React.FC = () => {
           <Alert
             type='error'
             title='danger'
+            description='you are dangerous'
+          />
+          <Alert
+            type='info'
+            title='Info'
             description='you are dangerous'
           />
         </Transition>

@@ -3,7 +3,8 @@ $alert-colors: (
   'success': $success,
   'warning': $warning,
   'danger': $danger,
-  'error': $danger
+  'error': $danger,
+  'info': $info,
 );
 .tui-alert {
   position: relative;

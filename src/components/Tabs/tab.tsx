@@ -1,7 +1,6 @@
 import React, { FunctionComponentElement, useState, useEffect } from 'react'
 import classNames from 'classnames'
 import { ITabItemProps } from './tabItem'
-import { error } from 'console'
 
 type Type = 'line' | 'card'
 type Position = 'top' | 'bottom' | 'left' | 'right'

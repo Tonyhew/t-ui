@@ -21,11 +21,12 @@ export interface IAlertProps {
   closable?: boolean;
   className?: string;
   icon?: IconName;
+  showIcon?: boolean;
 }
 
 const Alert: React.FC<IAlertProps> = (props) => {
   const [hide, setHide] = useState(false);
-  const { title, description, type, closable, onClose, className, icon } =
+  const { title, description, type, closable, onClose, className, icon, showIcon } =
     props;
 
   const classes = classNames('tui-alert', className, {
@@ -44,8 +45,7 @@ const Alert: React.FC<IAlertProps> = (props) => {
   };
 
   const iconTypeRender = (iconType: any, icon: any) => {
-    console.log(icon, iconType)
-    if (!icon) {
+    if (showIcon) {
       switch (iconType) {
         case 'success':
           return (
@@ -72,6 +72,14 @@ const Alert: React.FC<IAlertProps> = (props) => {
               style={{ transform: 'rotate(45deg)' }}
             />
           );
+        case 'info':
+          return (
+            <Icon
+              className="tui-alert-icon"
+              theme={iconType}
+              icon={'info-circle'}
+            />
+          );
       }
     } else {
       return <Icon className="tui-alert-icon" theme={iconType} icon={icon} />;
@@ -82,7 +90,7 @@ const Alert: React.FC<IAlertProps> = (props) => {
     <Transition in={!hide} animation="zoom-in-top" timeout={300}>
       <div className={classes} data-testid="tui-alert">
         {/* {icon && <span className='tui-alert-icon'>{icon}</span>} */}
-        {icon ? iconTypeRender(type, icon) : iconTypeRender(type, icon)}
+        {showIcon ? iconTypeRender(type, icon) : iconTypeRender(type, icon)}
         <span className={titleClass}>{title}</span>
         {description && <p className="tui-alert-desc">{description}</p>}
         {closable && (
