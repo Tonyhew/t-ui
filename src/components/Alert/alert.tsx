@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import Transition from '../Transition/transition';
 import Icon from '../Icon/Icon';
-import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export type AlertType =
   | 'success'
@@ -20,7 +20,7 @@ export interface IAlertProps {
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
   closable?: boolean;
   className?: string;
-  icon?: IconName;
+  icon?: IconProp;
   showIcon?: boolean;
 }
 
