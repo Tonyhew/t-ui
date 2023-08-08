@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, InputHTMLAttributes } from 'react';
+import React, { FC, ReactElement, InputHTMLAttributes, ChangeEvent } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Icon from '../Icon/Icon';
 import classNames from 'classnames';
@@ -12,6 +12,7 @@ export interface InputProps
   icon?: IconProp;
   prepend?: string | ReactElement;
   append?: string | ReactElement;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: FC<InputProps> = (props) => {
@@ -31,6 +32,19 @@ const Input: FC<InputProps> = (props) => {
     'is-prepend': isPrepend,
     'is-append': isAppend
   });
+
+  const fixControlledValue = (value: any) => {
+    if (value === 'undefined' || value === null) {
+      return ''
+    }
+
+    return value;
+  }
+
+  if ('value' in props) {
+    delete restProps.defaultValue;
+    restProps.value = fixControlledValue(props.value)
+  }
 
   // 根据属性判断是否要添加不同的节点
   return (

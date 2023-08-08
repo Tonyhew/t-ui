@@ -26,7 +26,13 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <p>Input组件: </p>
-        <Input icon={'check-circle'} prepend={'prepand'} append={'append'} style={{ width: '300px', margin: '0 auto' }} />
+        <Input
+          icon={'check-circle'}
+          prepend={'prepand'}
+          // append={'append'}
+          style={{ margin: '0 auto' }}
+          onChange={e => console.log(e.target.value)}
+        />
 
         <p>Menu组件: </p>
 
