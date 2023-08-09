@@ -23,9 +23,12 @@ $alert-colors: (
     padding: $alert-padding-y $alert-padding-x;
     color: inherit;
     cursor: pointer;
+    
   }
   .bold-title {
     font-weight: $font-weight-bold;
+  }
+  .isClose {
     margin-right: 1.25rem;
   }
   .tui-alert-desc {
