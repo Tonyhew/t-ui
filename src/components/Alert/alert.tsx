@@ -30,11 +30,12 @@ const Alert: React.FC<IAlertProps> = (props) => {
     props;
 
   const classes = classNames('tui-alert', className, {
-    [`tui-alert-${type}`]: type
+    [`tui-alert-${type}`]: type,
   });
 
   const titleClass = classNames('tui-alert-title', className, {
-    'bold-title': title
+    'bold-title': title,
+    'isClose': closable
   });
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
